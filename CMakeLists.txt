@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(cse455-2020-hw0)
+project(cse576-2020-HW0)
 
 set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always -std=c++11 -pthread -O3 -g -march=native -fPIC")
 

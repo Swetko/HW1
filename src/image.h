@@ -173,7 +173,6 @@ struct Image
   void RGBtoLCH(void);
   void shift(int c, float v);
   void scale(int c, float v);
-  void threshold(float thres);
   void clamp(void);
   void feature_normalize(void);
   void feature_normalize_total(void);
@@ -185,7 +184,6 @@ struct Image
   
   // Member functions for transforming an image
   Image rgb_to_grayscale(void) const;
-  Image transpose(void) const;
   Image abs(void) const;
   
   // Image I/O member functions
@@ -219,13 +217,7 @@ void clamp_image(Image& im);
 
 // Image manipulation
 Image get_channel(const Image& im, int c);
-Image sub_image(const Image& a, const Image& b);
-Image add_image(const Image& a, const Image& b);
-
-Image operator-(const Image& a, const Image& b);
-Image operator+(const Image& a, const Image& b);
 bool operator ==(const Image& a, const Image& b);
-
 int same_image(const Image& a, const Image& b);
 
 

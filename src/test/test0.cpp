@@ -110,8 +110,6 @@ void run_tests()
 
 int main(int argc, char **argv)
   {
-  run_tests();
-  
   // Image manipulation for fun testing.
   
   Image im2 = load_image("data/dog.jpg");
@@ -119,6 +117,10 @@ int main(int argc, char **argv)
       for (int j=0; j<im2.h; j++)
           im2(i, j, 0) = 0;
   im2.save_image("output/pixel_modifying_output");
+  
+  // Running example tests
+  
+  run_tests();
   
   return 0;
   }

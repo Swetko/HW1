@@ -27,75 +27,12 @@ bool operator ==(const Image& a, const Image& b)
   }
 
 
-
-template <size_t TSZ>
-void TiledTranspose(Image& img_out, const Image& img_in, int c)
-  {
-  const size_t w = img_in.w;
-  const size_t h = img_in.h;
-  const size_t BPP = sizeof(float);
-  
-  float d[TSZ][TSZ];
-  
-  for(size_t xin = 0; xin < w; xin += TSZ)
-    for(size_t yin = 0; yin < h; yin += TSZ)
-      {
-      const size_t xspan = min(TSZ, w - xin);
-      const size_t yspan = min(TSZ, h - yin);
-      const size_t dmin = min(xspan, yspan);
-      const size_t dmax = max(xspan, yspan);
-      const size_t xout = yin;
-      const size_t yout = xin;
-      
-      for(size_t y = 0; y < yspan; y++)
-        memcpy(d[y], &img_in(xin, yin + y, c), xspan * BPP);
-      
-      for(size_t x = 0; x < dmin; x++)
-        for(size_t y = x + 1; y < dmax; y++)
-          swap(d[x][y], d[y][x]);
-      
-      for(size_t y = 0; y < xspan; y++)
-        memcpy(&img_out(xout, yout + y,  c), d[y], yspan * BPP);
-      }
-  }
-
-
-
-
-Image Image::transpose(void) const
-  {
-  //TIME(1);
-  Image ret(h,w,c);
-  
-  if(c>1)
-    {
-    vector<thread> th;
-    for(int c=0;c<this->c;c++)th.push_back(thread([&ret,this,c](){TiledTranspose<80>(ret,*this,c);}));
-    for(auto&e1:th)e1.join();
-    }
-  else TiledTranspose<80>(ret,*this,0);
-  
-  return ret;
-  }
-
-
-inline float dot_product(const float* a, const float* b, int n)
-  {
-  float sum=0;
-  for(int q1=0;q1<n;q1++)sum+=a[q1]*b[q1];
-  return sum;
-  }
-
-
 Image Image::abs(void) const 
   {
   Image ret=*this;
   for(int q2=0;q2<h;q2++)for(int q1=0;q1<w;q1++)
     for(int q3=0;q3<c;q3++)
-      {
-      float a=pixel(q1,q2,q3);
-      ret(q1,q2,q3)=fabsf(a);
-      }
+      ret(q1,q2,q3)=fabsf(ret(q1,q2,q3));
   return ret;
   }
 
