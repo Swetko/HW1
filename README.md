@@ -259,7 +259,19 @@ Fill in `void rgb_to_hsv(Image& im)` in `process_image.cpp` to convert an RGB im
 
 ## 7. HSV to RGB ##
 
-Okay, now let's do the reverse transformation. Using the equations from above, figure out how to compute the R, G, B channels given the H, S, V channels.
+Okay, now let's do the reverse transformation. You can use the following equations:
+
+```
+
+# Given the H, S, V channels of an image:
+C = V * S
+X = C * (1 - |(6*H) mod 2 - 1|)
+m = V - C
+```
+
+```
+(R, G, B) = (R'+m, G'+m, B'+m)
+```
 
 Fill in `void hsv_to_rgb(Image& im)` in `process_image.cpp` with this in-place transformation.
 
