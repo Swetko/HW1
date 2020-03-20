@@ -81,8 +81,8 @@ Always pass images as `const Image& image` if you are accessing only or `Image& 
 
 If you want to access pixels you can do:
 
-    float value = im(0,2,1); // gets the pixel at row 0, column 2 and channel 1
-    im(3,0,2) = 0.76;  // sets the pixel at row 3, column 0 and channel 2
+    float value = im(0,2,1); // gets the pixel at column 0, row 2 and channel 1
+    im(3,0,2) = 0.76;  // sets the pixel at column 3, row 0 and channel 2
 
 If you specify out of bounds coordinates you will get an error.
 
@@ -114,9 +114,9 @@ The convention is that the coordinate system starts at the top left of the image
 
 ![Image coordinate system](figs/coords.png)
 
-In our `data` array we store the image in `CHW` format. The first pixel in data is at channel 0, row 0, column 0. The next pixel is channel 0, row 0, column 1, then channel 0, row 0, column 2, etc. The accessor operator `image(1,2,1)` actually needs the address of the pixel value
+In our `data` array we store the image in `CHW` format. The first pixel in data is at channel 0, row 0, column 0 (note that the rows correspond to the Y axes and columns correspond to the X axes). The next pixel is channel 0, row 0, column 1, then channel 0, row 0, column 2, etc. The accessor operator `image(1,2,1)` actually needs the address of the pixel value
 
-Your first task is to fill out the function that computes it in `src/image_access.cpp`:
+Your first task is to fill out the function that computes it in `src/access_image.cpp`:
 
     int pixel_address(const Image& im, int x, int y, int ch);
 
@@ -128,7 +128,7 @@ Although by default the pixel access operator `image(1,2,1)` does bounds checkin
 
 We will use the `clamp` padding strategy. This means that if the programmer asks for a pixel at column -3, use column 0, or if they ask for column 300 and the image is only 256x256 you will use column 255 (because of zero-based indexing).
 
-Implement the following two functions in `src/image_access.cpp`:
+Implement the following two functions in `src/access_image.cpp`:
 
     float get_clamped_pixel(const Image& im, int x, int y, int ch);
     void set_pixel(Image& im, int x, int y, int c, float value);
@@ -154,7 +154,7 @@ Then try running it. Check out our very not red dog:
 
 Sometimes you have an image and you want to copy it! To do this we should make a new image of the same size and then fill in the data array in the new image. You could do this by assigning pixels from one image to another, by looping over the whole array and just copying the floats (pop quiz: if the image is 256x256x3, how many total pixels are there?), or by using the built-in memory copying function `memcpy`.
 
-Fill in the function `void copy_image(Image& to, const Image& from)` in `src/image_access.cpp` with your code.
+Fill in the function `void copy_image(Image& to, const Image& from)` in `src/access_image.cpp` with your code.
 
 ## 3. Grayscale image ##
 
