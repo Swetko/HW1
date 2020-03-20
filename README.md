@@ -259,7 +259,9 @@ Fill in `void rgb_to_hsv(Image& im)` in `process_image.cpp` to convert an RGB im
 
 ## 7. HSV to RGB ##
 
-Ok, now do it all backwards in `hsv_to_rgb`!
+Okay, now let's do the reverse transformation. Using the equations from above, figure out how to compute the R, G, B channels given the H, S, V channels.
+
+Fill in `void hsv_to_rgb(Image& im)` in `process_image.cpp` with this in-place transformation.
 
 Finally, when your done we can mess with some images! In `test.c` we convert an image to HSV, increase the saturation, then convert it back, lines 108-114:
 
