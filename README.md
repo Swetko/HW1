@@ -185,7 +185,7 @@ Implement this conversion for the function `rgb_to_grayscale` in `process_image.
 
 Now let's write a function to add a constant factor to a channel in an image. We can use this across every channel in the image to make the image brighter or darker. We could also use it to, say, shift an image to be more or less of a given color.
 
-Fill in the code for `void shift_image(image im, int c, float v);`. It should add `v` to every pixel in channel `c` in the image. Now we can try shifting all the channels in an image by `.4` or 40%. See lines 82-86 in `test.c`:
+Fill in the code for `void shift_image(image im, int c, float v);` in `process_image.cpp`. It should add `v` to every pixel in channel `c` in the image. Now we can try shifting all the channels in an image by `.4` or 40%. See lines 82-86 in `test.c`:
 
     // 4. Shift Image
     shift_image(im, 0, .4);
