@@ -269,6 +269,9 @@ X = C * (1 - |(6*H) mod 2 - 1|)
 m = V - C
 ```
 
+<img src="figs/hsv_to_rgb.svg" width="256">
+
+
 ```
 (R, G, B) = (R'+m, G'+m, B'+m)
 ```
