@@ -179,7 +179,7 @@ Using this conversion technique we get a pretty good grayscale image! Now `test_
 
 ![Grayscale colorbars](figs/gray.png)
 
-Implement this conversion for the function `rgb_to_grayscale`. Return a new image that is the same size but only one channel containing the calculated luma values.
+Implement this conversion for the function `rgb_to_grayscale` in `process_image.cpp`. Return a new image that is the same size but only one channel containing the calculated luma values.
 
 ## 4. Shifting the image colors ##
 
