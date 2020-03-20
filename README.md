@@ -122,6 +122,8 @@ Your first task is to fill out the function that computes it in `src/access_imag
 
 `pixel_address` should return the location in the data array of the pixel value at `x,y,ch`.
 
+Note that the `()` operator for `Image` is overloaded for pixel access (see `image.h`). It will use your `pixel_address` function to find the correct pixel location.
+
 Although by default the pixel access operator `image(1,2,1)` does bounds checking in some circumstances it is easier if we adopt a padding strategy and not worry about bounds. There are a number of possible padding strategies:
 
 ![Image padding strategies](figs/pad.png)
@@ -134,6 +136,8 @@ Implement the following two functions in `src/access_image.cpp`:
     void set_pixel(Image& im, int x, int y, int c, float value);
 
 `set_pixel` should simply return without doing anything if you pass in out-of-bounds coordinates. For `get_clamped_pixel` we will perform padding to the image.
+
+Note that you can use the `()` operator e.g., `im(3, 2, 0)` to access pixels.
 
 
 We can test out our pixel-setting code on the dog image by removing all of the red channel. If you wish, make a new executable similar to `test0`, where you can explore using your newly written image library. Follow the example from `CMakeLists.txt` and `src/test/test0.cpp` to create new executables.
