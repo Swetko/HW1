@@ -4,6 +4,55 @@ Welcome friends,
 
 For the first assignment we'll just get to know the codebase a little bit and practice manipulating images, transforming things, breaking stuff, it should be fun!
 
+
+
+## Setting up codebase ##
+
+### Download the repository ###
+Download from github.
+
+    git clone https://github.com/bindita/cse455_hw0
+
+### Compile ###
+We will build the library using `cmake` and `make`. Conveniently there is a bash script `compile.sh`, that does that for you. We advise to use Linux or MacOS for the homework since setting up cmake and make will be simpler.
+
+#### Linux and MacOS ####
+Go to the downloaded folder and here are some commands that can help you:
+
+    ./compile.sh # runs cmake and make for you and produces ./test0
+    # that is basically all you should need.
+    ./clean.sh # cleans all files
+    ./compile.sh # compiles again
+
+Or if you want to compile manually do this:
+
+    cd build
+    rm -rf *
+    cmake ..
+    make -j4
+
+#### Windows ####
+For windows, first install cmake and look at this [video](https://www.youtube.com/watch?v=gYmgbqGfv-8) to use cmake with Visual Studio. Online resources should be enough to get things going, but if you get stuck the TAs are there to help you.
+
+
+### Run/Test ###
+
+Everytime you make any changes to the code, run the above build command. We have provided a simple test program to test some of the functionality. Then you can quickly test your changes by running:
+
+    ./test0
+
+If you run the above code without making any changes to the original repo, you will get the following result:
+
+    17 tests, 3 passed, 14 failed
+
+Once everything is implemented correctly, you will get:
+
+    17 tests, 17 passed, 0 failed
+
+Getting all tests passed is not a guarantee that your program is 100% correct. We are going to do a lot more extensive testing.
+
+
+
 ## Image basics ##
 
 We have a basic C++ structure to store images in our library. The `Image` struct stores the image metadata like width, height, and number of channels. It also contains the image data stored as a floating point array. You can check it out in `src/image.h`, it looks like this:
@@ -54,52 +103,6 @@ Feel free to explore `image.h` and the `struct Image {...}` to familiarize with 
 
 You'll be modifying and submitting `ONLY` the files `src/process_image.cpp` and `src/access_image.cpp`.
 
-## 0. Setting up codebase ##
-
-### 0.1. Download the repository ###
-Download from github.
-
-    git clone https://github.com/bindita/cse455_hw0
-
-### 0.2. Compile ###
-We will build the library using `cmake` and `make`. Conveniently there is a bash script `compile.sh`, that does that for you. We advise to use Linux or MacOS for the homework since setting up cmake and make will be simpler.
-
-#### 0.2.1. Linux ####
-Go to the downloaded folder and here are some commands that can help you:
-
-    ./compile.sh # runs cmake and make for you and produces ./test0
-    # that is basically all you should need.
-    ./clean.sh # cleans all files
-    ./compile.sh # compiles again
-
-Or if you want to compile manually do this:
-
-    cd build
-    rm -rf *
-    cmake ..
-    make -j4
-
-#### 0.2.2. MacOS ####
-
-#### 0.2.3. Windows ####
-For windows, first install cmake and look at this [video](https://www.youtube.com/watch?v=gYmgbqGfv-8) to use cmake with Visual Studio. Online resources should be enough to get things going, but if you get stuck the TAs are there to help you.
-
-
-### 0.3. Run/Test ###
-
-Everytime you make any changes to the code, run the above build command. We have provided a simple test program to test some of the functionality. Then you can quickly test your changes by running:
-
-    ./test0
-
-If you run the above code without making any changes to the original repo, you will get the following result:
-
-    17 tests, 3 passed, 14 failed
-
-Once everything is implemented correctly, you will get:
-
-    17 tests, 17 passed, 0 failed
-
-Getting all tests passed is not a guarantee that your program is 100% correct. We are going to do a lot more extensive testing.
 
 ## 1. Getting and setting pixels ##
 
