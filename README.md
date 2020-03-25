@@ -1,4 +1,4 @@
-# CSE 576 Homework 0 #
+# CSE 576 Homework 1 #
 
 Welcome friends,
 
