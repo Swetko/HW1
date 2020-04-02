@@ -324,8 +324,8 @@ You only need to turn in ONLY the 2 files: `access_image.cpp` and `process_image
 [2]: https://en.wikipedia.org/wiki/Luma_(video)
 
 #### Grading ####
-
-    get_pixel            3
+    pixel_address        2
+    get_clamped_pixel    1
     set_pixel            3
     copy_image           2
     rgb_to_grayscale     2
