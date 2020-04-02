@@ -322,3 +322,21 @@ You only need to turn in ONLY the 2 files: `access_image.cpp` and `process_image
 
 [1]: https://en.wikipedia.org/wiki/SRGB#The_sRGB_transfer_function_("gamma")
 [2]: https://en.wikipedia.org/wiki/Luma_(video)
+
+#### Grading ####
+
+    get_pixel            3
+    set_pixel            3
+    copy_image           2
+    rgb_to_grayscale     2
+    shift_image          3
+    clamp_image          2
+    rgb_to_hsv           5
+    hsv_to_rgb           5
+                        25
+    
+    EXTRA CREDIT:
+    
+    scale_image                   1   OPTIONAL                         
+    rgb_to_luv                    2   OPTIONAL 
+    luv_to_rgb                    2   OPTIONAL  
