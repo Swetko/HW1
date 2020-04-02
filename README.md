@@ -11,7 +11,7 @@ For the first assignment we'll just get to know the codebase a little bit and pr
 ### Download the repository ###
 Download from github.
 
-    git clone https://github.com/bindita/cse455_hw0
+    git clone https://github.com/holynski/cse576_sp20_hw1
 
 ### Compile ###
 We will build the library using `cmake` and `make`. Conveniently there is a bash script `compile.sh`, that does that for you. We advise to use Linux or MacOS for the homework since setting up cmake and make will be simpler.
@@ -32,7 +32,7 @@ Or if you want to compile manually do this:
     make -j4
 
 #### Windows ####
-For windows, first install cmake and look at this [video](https://www.youtube.com/watch?v=gYmgbqGfv-8) to use cmake with Visual Studio. Online resources should be enough to get things going, but if you get stuck the TAs are there to help you.
+For windows, first install cmake and look at this [video](https://www.youtube.com/watch?v=gYmgbqGfv-8) to use cmake with Visual Studio. Since there are no external dependencies, if you're familiar with Visual Studio, you can also create a project and import the .H and .CPP files directly. Online resources should be enough to get things going, but if you get stuck the TAs are there to help you.
 
 
 ### Run/Test ###
